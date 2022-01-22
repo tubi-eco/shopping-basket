@@ -20,6 +20,9 @@ export default {
   computed: {
     ...mapGetters(["products", "basketItemCount"]),
   },
+  mounted() {
+    this.$store.commit("basketLocalStorage");
+  },
 };
 </script>
 <style lang="scss">
