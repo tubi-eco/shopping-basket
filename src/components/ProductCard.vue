@@ -9,16 +9,23 @@
         {{ product.price }}
         {{ product.currency.replace("TRY", "TL") }}
       </span>
-      <a @click="addToCart()" class="btn btn-medium btn-add-basket">
-        ADD BASKET
+      <a
+        @click="addToCart()"
+        class="btn btn-medium btn-add-basket"
+        :outofstock="product.id === 3"
+      >
       </a>
     </div>
   </li>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   props: ["product"],
+  computed: {
+    ...mapGetters(["outOfStock"]),
+  },
   methods: {
     addToCart() {
       this.$store.dispatch("addProductToCart", {

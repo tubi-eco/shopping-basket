@@ -9,6 +9,18 @@
       text-decoration: none;
       display:block;
     }
+    &[outofstock=true]{
+      pointer-events: none;
+      opacity: 0.5;
+      &::after{
+        content: 'OUT OF STOCK';
+      }
+    }
+    &[outofstock=false]{
+      &::after{
+        content: 'ADD BASKET';
+      }
+    }
     &.btn-large{
       width: 220px;
       height: 40px;
