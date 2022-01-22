@@ -1,0 +1,79 @@
+ //button
+ .btn{
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    border:1px solid transparent;
+    a{
+      text-decoration: none;
+      display:block;
+    }
+    &.btn-large{
+      width: 220px;
+      height: 40px;
+      font-size: 16px;
+      line-height: 40px;
+      padding: 0 35px;
+      @media (max-width:767px){
+        width: initial;
+        font-size: 12px;
+        padding: 0;
+        min-width: 160px;
+      }
+    }
+    &.btn-medium{
+      width: 140px;
+      height: 40px;
+      font-size: 15px;
+      line-height: 40px;
+    }
+    &.btn-small{
+      width: 120px;
+      height: 35px;
+      font-size: 15px;
+      line-height: 35px;
+    }
+    &.btn-border{
+      border:1px solid $list-border
+    }
+    &.btn-orange{
+      background: $orange;
+      color: #fff;
+    }
+    &.btn-basket{
+      float: right;
+      background:  $light-gray;
+      
+      top: -50%;
+      transform:translateY(50%);
+      a{
+      color:$text-list;
+      }
+      span{
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        background: $orange;
+        color:  $light-gray;
+        font-size: 13px;
+        padding: 0;
+        margin: 0;
+        line-height: 20px;
+        display: inline-block;
+      }
+    }
+    &.btn-add-basket{
+      background:  $orange;
+      display: inline-block;
+      color:#fff;
+      text-decoration: none;
+      @media (max-width: 767px) {
+       font-size: 12px;
+       width: inherit;
+       padding: 0 10px;
+      }
+      
+    }
+  }
+ 

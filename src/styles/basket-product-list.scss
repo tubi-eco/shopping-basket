@@ -1,0 +1,88 @@
+.basket-list {
+    ul {
+      li {
+        border: 1px solid $btn-gray-border;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border-bottom: 0;
+        &:nth-last-child(1){
+          border-bottom: 1px solid $btn-gray-border;
+        }
+        figure{
+          width: 20%;
+          padding: 0;
+          margin: 0;
+          text-align: left;
+          img{
+            width: 100%;
+            max-width: 150px;
+            @media (max-width: 767px) {
+              max-width: 120px;
+            }
+          }
+        }
+        @media (max-width: 767px) {
+          padding: 10px;
+        }
+        .description{
+          margin: 0;
+          padding: 10px 0;
+          position: relative;
+          text-align: left;
+          width: 40%;
+          @media (max-width: 767px) {
+            padding: 10px;
+            width: calc(100% - 20% - 20px);
+          }
+          span{
+            &.price{
+              bottom: 0;
+              position: absolute;
+              left: 10px;
+              right: auto;
+              width: 100%;
+              text-align: left;
+            }
+          }
+        }
+        .counter{
+          @media (max-width: 767px) {
+            text-align: left;
+            width: 20%;
+            display: inline-flex;
+            justify-content: space-between;
+          }
+        }
+        .remove-btn{
+          @media (max-width: 767px) {
+            width: 50%;
+            display: inline-flex;
+          }
+        }
+        .product-footer{
+          span{
+            float: left;
+            line-height: 40px;
+            text-align: left;
+            @media (max-width: 767px) {
+             font-size: 14px;
+            }
+          }
+          a{
+            float: right;
+          }
+        }
+      }
+    }
+  }
+
+.total-price{
+  display: flex;
+  padding: 20px;
+  background: $light-gray;
+  font-size: 16px;
+  text-align: right;
+  justify-content: right;
+}
