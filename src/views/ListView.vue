@@ -1,7 +1,7 @@
 <template>
   <div class="shopping-list">
     <h1>Ürün Listesi</h1>
-    <div class="product-list">
+    <div class="product-list" v-if="products">
       <ul>
         <ProductCard
           v-for="product in products"
@@ -9,6 +9,10 @@
           :product="product"
         />
       </ul>
+    </div>
+    <div v-else>
+      <img src="@/assets/loading.gif" width="30" /> <br />
+      Loading...
     </div>
   </div>
 </template>

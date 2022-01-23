@@ -1,7 +1,7 @@
 <template>
   <div class="basket-list">
     <div v-if="basketItemCount > 0">
-      <h1>MY CART ({{ basketItemCount }})</h1>
+      <h1 @click="test()">MY CART ({{ basketItemCount }})</h1>
       <ul>
         <BasketCard v-for="item in basket" :key="item.id" :item="item" />
       </ul>
@@ -19,16 +19,18 @@
       <router-link to="/" class="btn btn-large btn-border"
         >CONTINUE SHOPPING</router-link
       >
-      <router-link
+      <a
         v-if="basketItemCount > 0"
-        to="/"
+        @click="placeOrder()"
         class="btn btn-large btn-orange"
-        >PLACE ORDER</router-link
+        >PLACE ORDER</a
       >
     </div>
   </div>
 </template>
 <script>
+import axios from "axios";
+
 import { mapGetters } from "vuex";
 import BasketCard from "../components/BasketCard.vue";
 
@@ -39,6 +41,18 @@ export default {
   },
   computed: {
     ...mapGetters(["basket", "totalPrice", "basketItemCount"]),
+  },
+  methods: {
+    async placeOrder() {
+      let order = this.basket;
+      let result = await axios.post("https://nonchalant-fang.glitch.me/order", {
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+        body: JSON.parse(JSON.stringify(order)),
+      });
+      return result;
+    },
   },
 };
 </script>

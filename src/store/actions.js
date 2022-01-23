@@ -1,7 +1,7 @@
 import axios from "axios";
 import router from "@/router/index";
 
-var APIurl = "https://nonchalant-fang.glitch.me";
+let APIurl = "https://nonchalant-fang.glitch.me";
 
 const getProductList = (context) => {
   axios

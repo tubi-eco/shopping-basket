@@ -13,7 +13,13 @@
     <div class="counter">
       <a href="#" class="btn btn-small-radius" @click="addToBasket()">+</a>
       <span> {{ item.quantity }} </span>
-      <a href="#" class="btn btn-small-radius" @click="deleteToBasket()">-</a>
+      <a
+        href="#"
+        class="btn btn-small-radius"
+        :class="decrease"
+        @click="deleteToBasket()"
+        >-</a
+      >
     </div>
     <a href="#" class="text-btn remove-btn" @click="removeToBasket()">REMOVE</a>
   </li>
@@ -22,6 +28,13 @@
 <script>
 export default {
   props: ["item"],
+  computed: {
+    decrease() {
+      return {
+        inactive: this.item.quantity < 2,
+      };
+    },
+  },
   methods: {
     addToBasket() {
       this.$store.dispatch("addProductToCart", {
